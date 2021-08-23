@@ -21,3 +21,32 @@
     background-attachment: fixed;
   }
 }
+
+.header-produccion {
+  background: url(./img/header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+@media (min-width: 768px) {
+  .header-produccion {
+    background: url(./img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+
+.header-almacenamiento {
+  background: url(./img/alm-exp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-contacto {
+  background: url(./img/girasol.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

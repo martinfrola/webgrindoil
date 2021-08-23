@@ -1,6 +1,6 @@
-.produccion {
+.almacenamiento {
   margin-top: 6rem;
-  .header-produccion {
+  .header-almacenamiento {
     height: 50vh;
     position: relative;
   }
@@ -29,26 +29,23 @@
   }
 }
 
-.produccion-content {
+.almacenamiento-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  .balanza,
-  .proceso {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 5rem;
-    @include tablet {
-      flex-direction: row;
-      align-items: center;
-    }
-    p {
-      font-weight: bold;
-    }
-  }
 }
 
-.balanza {
+.alm-aceite {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5rem;
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+  }
+  p {
+    font-weight: bold;
+  }
   img {
     width: 100%;
     border: 5px solid rgba(5, 125, 9, 0.7);
@@ -57,12 +54,12 @@
   text-align: center;
   @include tablet {
     img {
-      width: 50%;
+      width: 40%;
       margin-right: 15rem;
     }
   }
 }
-.descarga {
+.alm-exp {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -76,45 +73,11 @@
   @include tablet {
     flex-direction: row-reverse;
     img {
-      width: 40%;
+      width: 50%;
       margin-left: 15rem;
     }
   }
   p {
     font-weight: bold;
-  }
-}
-
-.proceso {
-  img {
-    width: 100%;
-    border: 5px solid rgba(5, 125, 9, 0.7);
-    border-radius: 5px;
-  }
-  text-align: center;
-  @include tablet {
-    img {
-      width: 40%;
-      margin-right: 15rem;
-    }
-  }
-}
-
-.productos {
-  display: flex;
-  flex-direction: column;
-  margin: 3rem 0 5rem 0;
-  @include tablet {
-    flex-direction: row;
-  }
-  .producto {
-    width: 100%;
-    img {
-      height: 10rem;
-    }
-    p {
-      width: 80%;
-      margin: 1rem auto;
-    }
   }
 }

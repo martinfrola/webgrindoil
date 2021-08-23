@@ -1,5 +1,4 @@
 import React from "react";
-import Nav from "./Nav";
 import "../backgrounds.css";
 import Clientes from "./Clientes";
 import { Link } from "react-router-dom";
@@ -13,7 +12,7 @@ export default function Home() {
       <div className="home text-center">
         <div className="header">
           <div className="header-img">
-            <h1>INDUSTRIAS GRINDOIL S.A.</h1>
+            <h1 className="">INDUSTRIAS GRINDOIL S.A.</h1>
           </div>
           <div className="text-center header-title">
             <h1>INDUSTRIAS </h1>
