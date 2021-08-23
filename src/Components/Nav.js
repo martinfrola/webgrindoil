@@ -44,9 +44,9 @@ export default function Nav() {
           </button>
           <div className="menu hide">
             <Link to="/">Inicio</Link>
-            <Link to="/deportes">Producción</Link>
-            <Link to="/tusturnos">Almacentamiento</Link>
-            <Link to="/tusturnos">Contacto</Link>
+            <Link to="/produccion">Producción</Link>
+            <Link to="/almacenamiento">Almacentamiento</Link>
+            <Link to="/contacto">Contacto</Link>
           </div>
         </div>
       </div>

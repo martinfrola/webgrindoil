@@ -1,0 +1,28 @@
+.footer {
+  padding: 3rem 0 1rem 0;
+  background-color: $verde;
+  color: $blanco;
+  a {
+    text-decoration: none;
+    &:visited {
+      text-decoration: none;
+      color: $blanco;
+    }
+  }
+  .footer-redes {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    img {
+      height: 5rem;
+    }
+    a:hover {
+      cursor: pointer;
+    }
+  }
+  p {
+    &:last-of-type {
+      margin-top: 5rem;
+    }
+  }
+}

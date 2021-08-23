@@ -1,4 +1,4 @@
-.header {
+.header-img {
   background: url(./img/cami-girasol.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -6,9 +6,18 @@
 }
 
 .middle-bg {
-  background: url(./img/header.jpg);
+  background: url(./img/descarga.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+@media (min-width: 768px) {
+  .middle-bg {
+    background: url(./img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 }
