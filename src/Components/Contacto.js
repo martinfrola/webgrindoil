@@ -1,6 +1,72 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import firebase from "firebase";
+import "firebase/firestore";
+import Swal from "sweetalert2";
 
-export default function Contacto() {
+export default function Contacto(props) {
+  useEffect(() => {
+    if (props.location.pathname === "/contacto") {
+      window.scrollTo(0, 0);
+    }
+  });
+
+  const [mensaje, setMensaje] = useState({
+    nombre: "",
+    email: "",
+    tel: "",
+    msg: "",
+  });
+
+  function handleChange(e) {
+    setMensaje({
+      ...mensaje,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (
+      (mensaje.nombre === "") |
+      (mensaje.email === "") |
+      (mensaje.tel === "") |
+      (mensaje.msg === "")
+    ) {
+      Swal.fire({
+        title: "Error",
+        text: "Falta completar algún campo.",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true,
+      });
+    } else {
+      const db = firebase.firestore();
+      db.collection("mensajes")
+        .add(mensaje)
+        .then((docRef) => {
+          Swal.fire({
+            title: "Mensaje Enviado",
+            text: "¡Muchas gracias por contactarte! Estaremos en contacto a la brevedad.",
+            icon: "success",
+            iconColor: "rgb(5, 125, 9)",
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+          });
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: "Ups!",
+            text: "Hubo un error al conectar con la base de datos. Intenta de nuevo mas tarde.",
+            icon: "error",
+            showConfirmButton: false,
+            timer: 5000,
+            timerProgressBar: true,
+          });
+        });
+    }
+  }
   return (
     <div className="contacto">
       <div className="header-contacto">
@@ -8,23 +74,33 @@ export default function Contacto() {
       </div>
 
       <div className="contacto-content container">
-        <form action="" className="form text-center">
+        <form action="" className="form text-center" onSubmit={handleSubmit}>
           <h2 className="text-center">Dejanos un mensaje</h2>
           <div className="campo">
-            <label htmlFor="">Nombre</label>
-            <input type="text" />
+            <label htmlFor="nombre">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              onChange={handleChange}
+            />
           </div>
           <div className="campo">
-            <label htmlFor="">Email</label>
-            <input type="email" />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={handleChange}
+            />
           </div>
           <div className="campo">
-            <label htmlFor="">Telefono</label>
-            <input type="phone" />
+            <label htmlFor="tel">Telefono</label>
+            <input type="phone" id="tel" name="tel" onChange={handleChange} />
           </div>
           <div className="campo">
-            <label htmlFor="">Deja tu mensaje</label>
-            <textarea name="" id=""></textarea>
+            <label htmlFor="msg">Deja tu mensaje</label>
+            <textarea name="msg" id="msg" onChange={handleChange}></textarea>
           </div>
           <div className="submit-btn">
             <button type="submit" className="btn">

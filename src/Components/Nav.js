@@ -20,6 +20,15 @@ export default function Nav() {
     }
   }
 
+  function closeNav() {
+    const open = document.querySelector(".open");
+    const view = document.querySelector(".view");
+
+    open.classList.remove("open");
+    view.classList.remove("view");
+    view.classList.add("close");
+  }
+
   window.addEventListener("resize", () => {
     const menu = document.querySelector(".menu-btn");
     const list = document.querySelector(".menu");
@@ -35,7 +44,10 @@ export default function Nav() {
   return (
     <div className="nav-bg">
       <div className="nav-content">
-        <img src={logo} alt="logo" className="nav-logo" />
+        <a href="/">
+          <img src={logo} alt="logo" className="nav-logo" />
+        </a>
+
         <div className="mobile-menu">
           <button className="menu-btn" onClick={handleClick}>
             <span className="top-line"></span>
@@ -43,10 +55,18 @@ export default function Nav() {
             <span className="bottom-line"></span>
           </button>
           <div className="menu hide">
-            <Link to="/">Inicio</Link>
-            <Link to="/produccion">Producción</Link>
-            <Link to="/almacenamiento">Almacentamiento</Link>
-            <Link to="/contacto">Contacto</Link>
+            <Link to="/" onClick={closeNav}>
+              Inicio
+            </Link>
+            <Link to="/produccion" onClick={closeNav}>
+              Producción
+            </Link>
+            <Link to="/almacenamiento" onClick={closeNav}>
+              Almacentamiento
+            </Link>
+            <Link to="/contacto" onClick={closeNav}>
+              Contacto
+            </Link>
           </div>
         </div>
       </div>

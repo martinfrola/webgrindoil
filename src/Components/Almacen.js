@@ -5,7 +5,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../backgrounds.css";
 
-export default function Almacen() {
+export default function Almacen(props) {
+  useEffect(() => {
+    if (props.location.pathname === "/almacenamiento") {
+      window.scrollTo(0, 0);
+    }
+  });
+
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {

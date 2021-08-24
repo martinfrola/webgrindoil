@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../backgrounds.css";
 import Clientes from "./Clientes";
 import { Link } from "react-router-dom";
 import iconoGirasol from "../img/icono-girasol.png";
 import iconoGotas from "../img/icono-gotas.png";
 import iconoQuimicos from "../img/icono-quimicos.png";
+import Swal from "sweetalert2";
 
-export default function Home() {
+export default function Home(props) {
+  useEffect(() => {
+    if (props.location.pathname === "/") {
+      window.scrollTo(0, 0);
+    }
+  });
+
+  if (localStorage.getItem("firstTime") == null) {
+    setTimeout(() => {
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        text: "¿Te interesa ser nuestro proveedor o comprar nuestros productos?",
+        showConfirmButton: true,
+        confirmButtonText: "Contactanos",
+        showCloseButton: true,
+        confirmButtonColor: "rgb(5, 125, 9)",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          props.history.push("/contacto");
+        }
+      });
+    }, 15000);
+    localStorage.setItem("firstTime", "done");
+  }
+
   return (
     <React.Fragment>
       <div className="home text-center">

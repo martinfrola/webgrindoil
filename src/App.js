@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Produccion from "./Components/Produccion";
@@ -7,7 +7,7 @@ import Contacto from "./Components/Contacto";
 import Nav from "./Components/Nav";
 import Footer from "./Components/Footer";
 
-function App() {
+function App(props) {
   return (
     <React.Fragment>
       <BrowserRouter>

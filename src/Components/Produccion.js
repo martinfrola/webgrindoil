@@ -7,7 +7,12 @@ import aceite from "../img/aceite.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function Produccion() {
+export default function Produccion(props) {
+  useEffect(() => {
+    if (props.location.pathname === "/produccion") {
+      window.scrollTo(0, 0);
+    }
+  });
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
