@@ -1,0 +1,52 @@
+.header-img {
+  background: url(./img/cami-girasol.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.middle-bg {
+  background: url(./img/descarga.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+@media (min-width: 768px) {
+  .middle-bg {
+    background: url(./img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+.header-produccion {
+  background: url(./img/header.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+@media (min-width: 768px) {
+  .header-produccion {
+    background: url(./img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+  }
+}
+
+.header-almacenamiento {
+  background: url(./img/alm-exp.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.header-contacto {
+  background: url(./img/girasol.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}

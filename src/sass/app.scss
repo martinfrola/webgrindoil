@@ -1,0 +1,12 @@
+@import "global/normalize";
+@import "global/variables";
+@import "global/general";
+@import "global/mixins";
+
+@import "layout/nav.scss";
+@import "layout/home.scss";
+@import "layout/clientes.scss";
+@import "layout/produccion.scss";
+@import "layout/almacen.scss";
+@import "layout/contacto.scss";
+@import "layout/footer.scss";

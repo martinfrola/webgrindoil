@@ -1,0 +1,22 @@
+.clientes-logos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include desktop {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  align-items: center;
+  img {
+    height: 110px;
+    @include tablet {
+      height: 150px;
+    }
+  }
+}
+.clientes {
+  margin: 7rem auto;
+}
