@@ -23,10 +23,12 @@ export default function Nav() {
   function closeNav() {
     const open = document.querySelector(".open");
     const view = document.querySelector(".view");
-
-    open.classList.remove("open");
-    view.classList.remove("view");
-    view.classList.add("close");
+    console.log(open, view);
+    if (open && view) {
+      open.classList.remove("open");
+      view.classList.remove("view");
+      view.classList.add("close");
+    }
   }
 
   window.addEventListener("resize", () => {

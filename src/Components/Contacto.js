@@ -2,10 +2,19 @@ import React, { useState, useEffect } from "react";
 import firebase from "firebase";
 import "firebase/firestore";
 import Swal from "sweetalert2";
+import emailjs, { init } from "@emailjs/browser";
 
 export default function Contacto(props) {
   useEffect(() => {
-    if (props.location.pathname === "/contacto") {
+    init("user_xN5AIG38cdM4rXW1fE7zN");
+
+    if (
+      props.location.pathname === "/contacto" &&
+      mensaje.email === "" &&
+      mensaje.tel === "" &&
+      mensaje.nombre === "" &&
+      mensaje.msg === ""
+    ) {
       window.scrollTo(0, 0);
     }
   });
@@ -66,6 +75,28 @@ export default function Contacto(props) {
           });
         });
     }
+
+    //Envío de correo
+    //Sending email with the data
+    const data = {
+      subject: "Nuevo mensaje en industriasgrindoil.com",
+      statusData: "Hola! Tienes un nuevo mensaje en tu sitio web!",
+      msg: mensaje.msg,
+      nombre: mensaje.nombre,
+      tel: mensaje.tel,
+      email: mensaje.email,
+    };
+    emailjs.send("martinfrola", "template_z3fyj7h", data).catch((error) => {
+      Swal.fire({
+        toast: "true",
+        position: "top-end",
+        icon: "error",
+        text: error.message,
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+      });
+    });
   }
   return (
     <div className="contacto">
@@ -77,7 +108,7 @@ export default function Contacto(props) {
         <form action="" className="form text-center" onSubmit={handleSubmit}>
           <h2 className="text-center">Dejanos un mensaje</h2>
           <div className="campo">
-            <label htmlFor="nombre">Nombre</label>
+            <label htmlFor="nombre">Nombre / Empresa</label>
             <input
               type="text"
               id="nombre"
@@ -98,7 +129,7 @@ export default function Contacto(props) {
             <label htmlFor="tel">Telefono</label>
             <input type="phone" id="tel" name="tel" onChange={handleChange} />
           </div>
-          <div className="campo">
+          <div className="campo campo-msg">
             <label htmlFor="msg">Deja tu mensaje</label>
             <textarea name="msg" id="msg" onChange={handleChange}></textarea>
           </div>
@@ -114,6 +145,7 @@ export default function Contacto(props) {
           height="450"
           allowfullscreen=""
           loading="lazy"
+          title="mapa"
         ></iframe>
       </div>
     </div>
